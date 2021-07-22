@@ -1,4 +1,3 @@
-
 package services;
 
 import models.*;
@@ -19,8 +18,9 @@ public class UserService {
     }
     
     public void insert(String email, boolean activity, String first_name, String last_name, String password, Role role) throws Exception{
-        User user = new User(email, activity, first_name, last_name, password, role);
+        User user = new User(email, activity, first_name, last_name, password);
         UserDB userDB = new UserDB();
+        user.setRole(role);
         userDB.insert(user);
     }
     
@@ -39,9 +39,3 @@ public class UserService {
         userDB.delete(user);
     }
 }
-
-
-
-
-
-
